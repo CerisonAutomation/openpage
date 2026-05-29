@@ -82,6 +82,37 @@ const templates: Template[] = [
     }),
   },
   {
+    keywords: ['property', 'real estate', 'rental', 'airbnb', 'vacation', 'villa', 'apartment', 'lettings'],
+    themePresetId: 'default',
+    build: (name) =>
+      ({
+        name,
+        theme: {
+          bg0: '#0F0F10', bg1: '#161618', bg2: '#1A1A1C', bg3: '#222224', bg4: '#2A2A2C', bg5: '#333336',
+          text0: '#F5F5F0', text1: '#E0E0DB', text2: '#A1A1AA', text3: '#71717A',
+          accent: '#D4AF37', accentDim: '#B8962E',
+          borderDefault: '#27272A', borderSubtle: '#1F1F22', borderHover: '#3F3F46',
+          fontSans: 'Manrope, sans-serif', fontDisplay: 'Playfair Display, serif', fontMono: 'monospace',
+          radius: 0, radiusLg: 2,
+        },
+        pages: [{
+          id: 'page-home', name: 'Home', path: '/',
+          blocks: [
+            { id: 'b-nav', type: 'navbar', variant: 'default', props: { logo: 'Christiano PM', links: ['For Owners', 'Book a Stay', 'Contact'], ctaText: 'List Your Property' } },
+            { id: 'b-hero', type: 'hero', variant: 'centered', props: { badge: 'Malta\'s #1 Property Management', headline: 'Your Home in Malta, Looked After Like a Hotel', subheadline: 'Handpicked luxury accommodations across Malta\'s most sought-after locations. Experience exceptional stays with personal attention.', primaryCta: 'Book Your Stay', secondaryCta: 'List Your Property', backgroundImage: 'https://images.unsplash.com/photo-1771218830084-fdd272e149a1?w=1920&q=80' } },
+            { id: 'b-stats', type: 'stats', variant: 'simple', props: { items: [{ value: '9+', label: 'Years Superhost' }, { value: '100%', label: 'Response Rate' }, { value: '4.9', label: 'Avg Rating' }, { value: '50+', label: 'Properties Managed' }] } },
+            { id: 'b-features', type: 'features', variant: 'grid', props: { label: 'Why Choose Us', title: 'We Know What a Good Stay Feels Like', subtitle: 'Full-service property management with over 9 years of Superhost experience in Malta', items: [{ icon: 'Star', title: 'Personally Curated', description: 'Every property handpicked and personally inspected to meet our standards.' }, { icon: 'Shield', title: 'Always Available', description: '24/7 support throughout your stay. Real people, real solutions.' }, { icon: 'Clock', title: 'Flexible Service', description: 'Early arrivals, late checkouts, and personalized arrangements on request.' }] } },
+            { id: 'b-pricing', type: 'pricing', variant: 'cards', props: { label: 'Transparent Pricing', headline: 'One fee. No surprises.', description: 'A single commission on net room revenue. All new properties launch with Superhost credibility from day one.', plans: [{ name: 'Essentials', price: '15%', period: 'of Net Room Revenue + VAT', description: 'Core operations. Your property listed, managed, and maintained.', features: ['Multi-channel listing creation & management', 'Superhost status from day one', 'Smart seasonal pricing optimization', 'Guest communication & 24/7 concierge', 'Professional cleaning & laundry'] }, { name: 'Complete', price: '18%', period: 'of Net Room Revenue + VAT', popular: true, description: 'Full-service management. The guest experience that drives better returns.', features: ['Everything in Essentials', 'Welcome amenities included', 'Monthly reporting included', 'All callout fees included', 'Annual photography refresh included', 'Quarterly performance reviews'] }] } },
+            { id: 'b-testimonials', type: 'testimonials', variant: 'grid', props: { label: 'Guest Reviews', headline: 'What Our Guests Say', items: [{ name: 'Katie', role: 'October 2024', content: 'Christiano was an amazing host and the apartment was flawless. From the slippers to the birthday wine for my husband, everything was spot on.' }, { name: 'Eric', role: 'October 2024', content: 'Christiano is a gracious, proactive host who made sure I had all the information I needed. Communication was excellent.' }, { name: 'Miranda', role: 'August 2024', content: 'We loved the apartment—spacious, clean, and felt like home. Perfect size for our family of four. Ideally located for seeing Valletta.' }] } },
+            { id: 'b-faq', type: 'faq', variant: 'simple', props: { label: 'FAQ', headline: 'Property Owner Questions', items: [{ question: 'What types of properties do you manage?', answer: 'We manage a wide range of properties, from apartments to villas and palazzos. Whether it\'s a cozy flat or a luxurious estate, we offer tailored management solutions.' }, { question: 'What is your management fee?', answer: 'We offer two plans: Essentials at 15% and Complete at 18% of Net Room Revenue. The Complete plan includes additional services at no extra charge.' }, { question: 'How do you handle guest communication?', answer: 'We provide 24/7 guest support, ensuring all guest inquiries from check-in to check-out are promptly addressed.' }] } },
+            { id: 'b-cta', type: 'cta', variant: 'simple', props: { headline: 'Ready to Maximize Your Property\'s Potential?', subheadline: 'Join our selective portfolio of Malta\'s finest properties. Get in touch for a consultation.', buttonText: 'List Your Property' } },
+            { id: 'b-footer', type: 'footer', variant: 'simple', props: { logo: 'Christiano PM', copyright: '2026 Christiano Property Management. All rights reserved.', links: ['Privacy Policy', 'Terms of Service', 'Contact Us'] } },
+          ],
+        }],
+        blocks: [],
+      }) as SiteConfig,
+  },
+  {
     // Default: SaaS landing page
     keywords: [],
     themePresetId: 'default',
@@ -109,6 +140,7 @@ export const templateMeta = [
   { id: 'restaurant', name: 'Restaurant', description: 'Menu, reservations, and ambiance', accent: '#e8a838', blockCount: 7, templateIndex: 1, icon: 'UtensilsCrossed' },
   { id: 'agency', name: 'Agency', description: 'Services, case studies, and team', accent: '#228be6', blockCount: 8, templateIndex: 2, icon: 'Building2' },
   { id: 'blog', name: 'Blog', description: 'Articles, topics, and subscribers', accent: '#4f46e5', blockCount: 7, templateIndex: 3, icon: 'BookOpen' },
+  { id: 'property', name: 'Property Mgmt', description: 'Luxury short-term rental & property management', accent: '#D4AF37', blockCount: 9, templateIndex: 4, icon: 'Building2' },
 ] as const
 
 export function buildTemplate(id: string, name: string): SiteConfig {

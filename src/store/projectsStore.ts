@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import type { SiteConfig } from '@/blocks/types'
+import { saveProjectToSupabase } from '@/lib/supabase-sync'
 
 export interface Project {
   id: string
@@ -94,6 +95,7 @@ export const useProjectsStore = create<ProjectsState>()(
             p.id === id ? { ...p, config, blockCount: totalBlocks, updatedAt: 'Just now' } : p
           ),
         }))
+        saveProjectToSupabase(id, config).catch(() => {})
       },
       updateProjectSettings: (id, settings) =>
         set((state) => ({
